@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: zitaotech_sofle}
 layers:
-  QWERTY: [ESC, '1', '2', '3', '4', '5', MUTE, MUTE, '6', '7', '8', '9', '0', BSPC, TAB, Q, W, E, R, T, Y, U, I, O, P, \, CAPS, A, S, D, F, G, '&mkp LCLK', '&mkp
+  QWERTY: ['`', '1', '2', '3', '4', '5', MUTE, MUTE, '6', '7', '8', '9', '0', BSPC, TAB, Q, W, E, R, T, Y, U, I, O, P, \, CAPS, A, S, D, F, G, '&mkp LCLK', '&mkp
       LCLK', H, J, K, L, ;, ENTER, LSHFT, Z, X, C, V, B, PG DN, PG UP, '&msc SCRL_DOWN', '&msc SCRL_UP', N, M, ',', ., /, RSHIFT, LCTRL, LGUI, LALT, SPACE, LOWER,
     LOWER, SPACE, '-', '=', '`']
   LOWER:
@@ -16,34 +16,34 @@ layers:
   - F7
   - F8
   - F9
-  - F10
+  - '='
   - DEL
   - TAB
   - {t: ▽, type: trans}
-  - UP
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - F10
+  - F11
+  - F12
+  - '-'
+  - '['
+  - ']'
+  - ESCAPE
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - OUT TOG
-  - F11
-  - F12
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - HOME
-  - \
-  - CAPS
-  - LEFT
-  - DOWN
-  - RIGHT
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - '&mkp RCLK'
   - '&mkp RCLK'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - UP ARROW
   - ''''
-  - ENTER
   - LSHFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -56,10 +56,10 @@ layers:
   - '&bl BL_INC'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '['
-  - ']'
-  - _
-  - +
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - DOWN ARROW
+  - RIGHT ARROW
   - '&bootloader'
   - LGUI
   - LALT
@@ -69,7 +69,7 @@ layers:
   - SPACE
   - {t: ▽, type: trans}
   - .
-  - '&bootloader'
+  - LEFT ARROW
   RAISE:
   - ESC
   - F1
