@@ -67,7 +67,7 @@ layers:
   - {t: LOWER, type: held}
   - LOWER
   - SPACE
-  - {t: ▽, type: trans}
+  - '&bootloader'
   - .
   - LEFT ARROW
   RAISE:
