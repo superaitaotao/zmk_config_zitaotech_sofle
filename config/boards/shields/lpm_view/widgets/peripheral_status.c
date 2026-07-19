@@ -22,14 +22,23 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include "peripheral_status.h"
 
 // ==================== 图片声明 ====================
-LV_IMG_DECLARE(cat);
-LV_IMG_DECLARE(astronaut);
-LV_IMG_DECLARE(macintosch);
-LV_IMG_DECLARE(david);
-LV_IMG_DECLARE(vader);
-LV_IMG_DECLARE(blackhole);
-LV_IMG_DECLARE(plane);
-LV_IMG_DECLARE(mounta);
+LV_IMG_DECLARE(family);
+LV_IMG_DECLARE(img_9286);
+LV_IMG_DECLARE(img_8774);
+LV_IMG_DECLARE(img_8748);
+LV_IMG_DECLARE(img_8449);
+LV_IMG_DECLARE(img_7455);
+LV_IMG_DECLARE(img_7331);
+LV_IMG_DECLARE(img_7196);
+LV_IMG_DECLARE(img_7168);
+LV_IMG_DECLARE(img_2629);
+LV_IMG_DECLARE(img_2588);
+LV_IMG_DECLARE(img_2703);
+LV_IMG_DECLARE(clip_01);
+LV_IMG_DECLARE(clip_02);
+LV_IMG_DECLARE(clip_03);
+LV_IMG_DECLARE(clip_04);
+LV_IMG_DECLARE(clip_05);
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
@@ -39,11 +48,13 @@ struct peripheral_status_state {
 };
 
 // ==================== 图片数组 ====================
-static const lv_img_dsc_t *bunny_frames[] = {
-    &cat, &astronaut, &macintosch, &david, &vader, &blackhole, &plane, &mounta,
+static const lv_img_dsc_t *image_frames[] = {
+    &family,   &img_9286, &img_8774, &img_8748, &img_8449, &img_7455,
+    &img_7331, &img_7196, &img_7168, &img_2629, &img_2588, &img_2703,
+    &clip_01,  &clip_02,  &clip_03,  &clip_04,  &clip_05,
 };
 
-#define BUNNY_FRAME_COUNT (sizeof(bunny_frames) / sizeof(bunny_frames[0]))
+#define IMAGE_FRAME_COUNT (sizeof(image_frames) / sizeof(image_frames[0]))
 
 // ==================== 图片切换控制 ====================
 static uint8_t current_img_index = 0;
@@ -76,22 +87,19 @@ static void draw_top(lv_obj_t *widget, lv_color_t cbuf[], const struct status_st
 // ================= 图片切换函数 =================
 static void switch_image(struct k_work *work) {
     struct zmk_widget_status *widget;
-
     uint8_t new_index;
 
     do {
-        new_index = sys_rand32_get() % BUNNY_FRAME_COUNT;
-    } while (new_index == current_img_index); // 避免重复
+        new_index = sys_rand32_get() % IMAGE_FRAME_COUNT;
+    } while (new_index == current_img_index);
 
     current_img_index = new_index;
 
     SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) {
-        // art 是第2个 child（0=canvas, 1=img）
         lv_obj_t *art = lv_obj_get_child(widget->obj, 1);
-        lv_img_set_src(art, bunny_frames[current_img_index]);
+        lv_img_set_src(art, image_frames[current_img_index]);
     }
 
-    // 重新调度 60 秒
     k_work_schedule(&img_switch_work, K_SECONDS(60));
 }
 
@@ -156,11 +164,10 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     lv_obj_align(top, LV_ALIGN_BOTTOM_LEFT, 0, 0);
     lv_canvas_set_buffer(top, widget->cbuf, CANVAS_SIZE, CANVAS_SIZE, LV_IMG_CF_TRUE_COLOR);
 
-    // --- 初始随机图片 ---
-    current_img_index = sys_rand32_get() % BUNNY_FRAME_COUNT;
+    current_img_index = sys_rand32_get() % IMAGE_FRAME_COUNT;
 
     lv_obj_t *art = lv_img_create(widget->obj);
-    lv_img_set_src(art, bunny_frames[current_img_index]);
+    lv_img_set_src(art, image_frames[current_img_index]);
     lv_obj_align(art, LV_ALIGN_TOP_LEFT, 20, 0);
 
     sys_slist_append(&widgets, &widget->node);
@@ -168,7 +175,6 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     widget_battery_status_init();
     widget_peripheral_status_init();
 
-    // 初始化定时器（只初始化一次）
     static bool work_initialized = false;
     if (!work_initialized) {
         k_work_init_delayable(&img_switch_work, switch_image);
