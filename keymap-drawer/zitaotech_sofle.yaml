@@ -21,8 +21,8 @@ layers:
   - TAB
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Gui+Sft+3
+  - Gui+Sft+4
   - {t: ▽, type: trans}
   - F10
   - F11
@@ -60,7 +60,7 @@ layers:
   - {t: ▽, type: trans}
   - DOWN ARROW
   - RIGHT ARROW
-  - '&bootloader'
+  - LCTRL
   - LGUI
   - LALT
   - SPACE
