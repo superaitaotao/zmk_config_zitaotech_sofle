@@ -1,8 +1,8 @@
 layout: {zmk_keyboard: zitaotech_sofle}
 layers:
   QWERTY: ['`', '1', '2', '3', '4', '5', MUTE, MUTE, '6', '7', '8', '9', '0', BSPC, TAB, Q, W, E, R, T, Y, U, I, O, P, \, ESCAPE, A, S, D, F, G, '&mkp LCLK', '&mkp
-      LCLK', H, J, K, L, ;, ENTER, LSHFT, Z, X, C, V, B, PG DN, PG UP, '&msc SCRL_DOWN', '&msc SCRL_UP', N, M, ',', ., /, RSHIFT, LCTRL, LEFT ALT, LEFT COMMAND, SPACE,
-    LOWER, LOWER, SPACE, '-', '=', '`']
+      LCLK', H, J, K, L, ;, ENTER, LSHFT, Z, X, C, V, B, PG DN, PG UP, '&msc SCRL_DOWN', '&msc SCRL_UP', N, M, ',', ., /, RSHIFT, LCTRL, LEFT ALT, LEFT COMMAND, LOWER,
+    SPACE, LOWER, SPACE, '-', '=', '`']
   LOWER:
   - ESC
   - F1
@@ -63,8 +63,8 @@ layers:
   - LCTRL
   - LEFT ALT
   - LEFT COMMAND
-  - LOWER
-  - {t: SPACE, type: held}
+  - {t: LOWER, type: held}
+  - SPACE
   - LOWER
   - SPACE
   - '&bootloader'
