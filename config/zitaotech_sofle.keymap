@@ -144,8 +144,8 @@
             bindings = <
 &kp ESC     &kp F1        &kp F2            &kp F3          &kp F4          &kp F5           &bt BT_CLR  &kp C_MUTE   &kp F6      &kp F7          &kp F8            &kp F9             &kp EQUAL     &kp DEL
 &kp TAB     &trans        &trans            &kp LG(LS(N3))  &kp LG(LS(N4))  &trans           &kp F10     &kp F11      &kp F12     &kp MINUS       &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&kp ESCAPE  &trans        &trans            &trans          &trans          &out OUT_TOG     &mkp RCLK   &mkp RCLK    &trans      &trans          &trans            &trans             &kp UP_ARROW  &kp SINGLE_QUOTE
-&kp LSHFT   &bootloader   &trans            &trans          &trans          &rgb_ug RGB_TOG  &trans      &trans       &bl BL_DEC  &bl BL_INC      &trans            &trans             &trans        &trans            &kp DOWN_ARROW  &kp RIGHT_ARROW
+&kp ESCAPE  &trans        &trans            &trans          &trans          &out OUT_TOG     &mkp RCLK   &mkp RCLK    &trans      &trans          &trans            &kp SINGLE_QUOTE   &kp UP_ARROW  &kp ENTER
+&kp LSHFT   &bootloader   &trans            &trans          &trans          &rgb_ug RGB_TOG  &trans      &trans       &bl BL_DEC  &bl BL_INC      &trans            &trans             &trans        &trans     &kp DOWN_ARROW  &kp RIGHT_ARROW
 &kp LCTRL   &kp LEFT_ALT  &kp LEFT_COMMAND  &kp SPACE       &mo 1           &mo 1            &kp SPACE   &bootloader  &kp DOT     &kp LEFT_ARROW
             >;
 
