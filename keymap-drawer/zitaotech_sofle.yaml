@@ -63,8 +63,8 @@ layers:
   - LCTRL
   - LEFT ALT
   - LEFT COMMAND
-  - SPACE
-  - {t: LOWER, type: held}
+  - LOWER
+  - {t: SPACE, type: held}
   - LOWER
   - SPACE
   - '&bootloader'
