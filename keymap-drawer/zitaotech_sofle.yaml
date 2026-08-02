@@ -173,7 +173,7 @@ layers:
   - '&mkp LCLK'
   - '&mkp LCLK'
   - H
-  - {t: J, h: '&mkp MB1'}
+  - '&mkp MB2'
   - K
   - L
   - ;
