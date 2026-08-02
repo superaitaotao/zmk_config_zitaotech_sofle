@@ -100,7 +100,7 @@ static void switch_image(struct k_work *work) {
         lv_img_set_src(art, image_frames[current_img_index]);
     }
 
-    k_work_schedule(&img_switch_work, K_SECONDS(60));
+    k_work_schedule(&img_switch_work, K_HOURS(1));
 }
 
 // ================= 电池状态 =================
@@ -178,7 +178,7 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     static bool work_initialized = false;
     if (!work_initialized) {
         k_work_init_delayable(&img_switch_work, switch_image);
-        k_work_schedule(&img_switch_work, K_SECONDS(60));
+        k_work_schedule(&img_switch_work, K_HOURS(1));
         work_initialized = true;
     }
 
